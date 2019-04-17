@@ -6,7 +6,7 @@
             30 - 70 % board width, 20 - 80 board height
     
 */
-
+/*
 .top-panel{
     position: fixed;
     left: 0;
@@ -24,6 +24,18 @@
 
 
 }
+*/
+body{
+    font-family: 'Roboto';font-size: 22px;
+}
+
+html { 
+    background: url(pig-wallpaper.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .container{
     position: absolute;
     left: 0;
@@ -34,34 +46,25 @@
 
 .game-board{
     position: relative;
-    background-color: rgb(241, 148, 148);
-    left: 20%;
-    width: 60%;
+    left: 25%;
+    width: 50%;
     top: 20%;
-    height: 450px; 
-    border: 1px solid red;
-    z-index: -2;
+    height: 400px; 
+    box-shadow: 0px 0px 10px 0px rgba(124, 124, 124, 0.75);
+
 }
 .game-panel{
-    z-index: -1;
-}
-.game-panel-0{
     position: absolute;
-    background-color: white;
+    background-color: rgb(255, 222, 212);
+    width: 50%;
+    top: 0;
+    height: 100%;
+}
+#game-panel-1{
     left: 0;
-    width: 50%;
-    top: 0;
-    height: 80%; 
-    border: 1px solid blue;
 }
-.game-panel-1{
-    position: absolute;
-    background-color: white;
+#game-panel-2{
     left: 50%;
-    width: 50%;
-    top: 0;
-    height: 80%; 
-    border: 1px solid blue;
 }
 .bottom-panel{
     position: absolute;
@@ -79,28 +82,139 @@
     text-align: center;
     top: 12%;
 }
-#roll{
+.btn span{
+    cursor: pointer;
+    display: inline-block;
     position: relative;
-    display: block;
-    margin: 0 auto;
-    top: 60%;
+    transition: 0.5s;
 }
+.btn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -35px;
+    transition: 0.5s;
+}
+#roll:hover span{
+    padding-right: 20px;
+}
+#restart:hover span{
+    padding-right: 20px;
+}
+#hold:hover span{
+    padding-right: 10px;
+}
+
+.btn:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.btn{
+    color: rgb(255, 72, 0);
+    text-shadow: 0px 0px 5px rgba(255, 213, 165, 0.75);
+    z-index: 20;
+    background-color: transparent;
+    border: none;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+.btn:active {
+    outline: none;
+    border: none;
+}
+button:focus {outline:0;}
 #hold{
     position: relative;
     display: block;
     margin: 0 auto;
+    top: 75%;
+}
+#roll{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.4em;
+    top: 42%;
+}
+#restart{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.4em;
+    top: 30%;
+}
+.player{
+    color: rgb(235, 92, 92);
+    position: relative;
+    top: 15%;
+    text-align: center;
+}
+.score-tot{
+    font-size: 3.5em;
+    color: brown;
+    position: relative;
+    top: 20%;
+    text-align: center;
+}
+.curr-container{
+    position: absolute;
+
+    float: left;
+    left: 0;
+    top: 70%;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+.curr{
+    position: relative;
+    display: inline-block;
+    font-size: 0.5em;
+    color: rgb(184, 72, 72);
+    top: 0;
+
+}
+.curr-num{
+    color: rgb(184, 72, 72);
+}
+#dice-container{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 30;
     top: 50%;
 }
-.score{
-    color: rgb(235, 92, 92);
+#dice{
+    display: inline-block;
+
 }
-.score-0{
-    position: relative;
-    top: 15%;
+.scores{
+    z-index: 30;
+    position: absolute;
+    left: 0;
+    width: 100%;
     text-align: center;
 }
-.score-1{
-    position: relative;
-    top: 15%;
+.scores #tot-scores{
+    opacity: 0.6;
+    color: brown;
+    font-size: 0.8em;
+    display: inline-block;
+}
+.crown{
+    z-index: 30;
+    position: absolute;
+    top: 7%;
+    left: 0;
+    width: 100%;
     text-align: center;
+}
+.crown .crown-img{
+    color: brown;
+    font-size: 0.8em;
+    display: none;
 }
